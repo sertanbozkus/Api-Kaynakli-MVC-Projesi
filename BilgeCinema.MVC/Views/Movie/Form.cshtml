@@ -1,0 +1,47 @@
+﻿@model MovieFormViewModel
+
+<div class="row justify-content-center">
+    <div class="col-4">
+
+        <div class="card">
+
+            <div class="card-header fw-bold fs-5">
+                FİLM FORMU
+            </div>
+            <div class="card-body">
+                <form method="post" asp-controller="Movie" asp-action="Save">
+
+                    <input asp-for="Id" type="hidden" />
+
+                    <div class="mb-3">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" type="text" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Type"></label>
+                        <input asp-for="Type" type="text" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="UnitPrice"></label>
+                        <input asp-for=UnitPrice type="text" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+
+                </form>
+            </div>
+
+
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+    </div>
+</div>
